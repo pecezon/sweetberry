@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdClose } from "react-icons/md";
 import { getTest } from "../functions/test";
+import { px } from "framer-motion";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,18 +26,13 @@ const Navbar = () => {
   }, []);
 
   return (
-    <Flex
-      padding={4}
-      justifyContent="space-between"
-      alignItems="center"
-      border="1px solid black"
-    >
+    <Flex padding={4} justifyContent="space-between" alignItems="center">
       {/* Logo */}
       <Link w="30%" href="https://www.youtube.com">
         <Image
           src={`${process.env.PUBLIC_URL}/images/brand/logo.png`}
           alt="logo"
-          maxWidth={{ lg: "225px", xl: "275px" }}
+          maxWidth={["100px", "200px"]}
           minWidth="100px"
           w="100%"
           h="auto"
@@ -48,8 +44,9 @@ const Navbar = () => {
         w="30%"
         display="flex"
         justifyContent="space-between"
-        fontSize={{ lg: "1rem", xl: "1.5rem" }}
+        fontSize={"1rem"}
         hideBelow="md"
+        gap="0 1rem"
       >
         <Link>Home</Link>
         <Link>Flavors</Link>
@@ -60,44 +57,46 @@ const Navbar = () => {
       {/* Links for mobile*/}
       <Box
         position="fixed"
-        top="0"
+        top="66px"
         left="0"
         width="100%"
-        height="100%"
+        height={window.innerHeight - 66 + "px"}
         bgcolor="white"
         zIndex="10"
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
+        hideFrom="md"
+        gap="1rem"
         sx={{ display: isMenuOpen ? "flex" : "none" }}
       >
-        <Link>Home</Link>
-        <Link>Flavors</Link>
-        <Link>Reviews</Link>
-        <Link>Toppings</Link>
+        <Link onClick={() => setIsMenuOpen(false)}>Home</Link>
+        <Link onClick={() => setIsMenuOpen(false)}>Flavors</Link>
+        <Link onClick={() => setIsMenuOpen(false)}>Reviews</Link>
+        <Link onClick={() => setIsMenuOpen(false)}>Toppings</Link>
       </Box>
 
       {/* Language toogle */}
       <Box
-        w="30%"
+        w={["50%", "30%"]}
         display="flex"
         justifyContent="flex-end"
-        border="1px solid black"
+        alignItems="center"
+        gap="1rem"
       >
-        <Button size={["xs", "sm", "md"]}>Esp</Button>
+        <Button size={["sm", "md"]}>Esp</Button>
+        {/*Ham menu */}
+        <IconButton
+          hideFrom={"md"}
+          display={"flex"}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          size={["sm", "md"]}
+          alignContent="center"
+          justifyContent="center"
+        >
+          {isMenuOpen ? <MdClose /> : <RxHamburgerMenu />}
+        </IconButton>
       </Box>
-
-      {/*Ham menu */}
-      <IconButton
-        hideFrom={"md"}
-        display={"flex"}
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        size="xs"
-        alignContent="center"
-        justifyContent="center"
-      >
-        {isMenuOpen ? <MdClose /> : <RxHamburgerMenu />}
-      </IconButton>
     </Flex>
   );
 };
