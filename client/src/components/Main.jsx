@@ -5,15 +5,30 @@ const Main = () => {
   return (
     <Box
       width="100%"
-      height={window.innerHeight - 66 + "px"}
+      height={[
+        window.innerHeight - 270 + "px",
+        window.innerHeight - 220 + "px",
+        window.innerHeight - 170 + "px",
+        window.innerHeight - 120 + "px",
+        window.innerHeight - 70 + "px",
+      ]}
       display="flex"
       backgroundColor={theme.lightPink}
       flexDir="column"
-      justifyContent="flex-start"
+      justifyContent="space-around"
       sx={{
-        clipPath: "ellipse(80% 80% at 50% 0%)",
+        clipPath: [
+          "ellipse(100% 66% at 50% 33%)",
+          "ellipse(67% 66% at 50% 33%)",
+        ],
       }}
       border="1px solid black"
+      backgroundRepeat="no-repeat"
+      background={`radial-gradient(circle at 100% 0px, ${theme.lighterPink} 200px, transparent 200px),
+                  radial-gradient(circle at 0 30%, ${theme.lighterPink} 150px, transparent 150px),
+                  radial-gradient(circle at 15% 80%, ${theme.lighterPink} 150px, transparent 150px),
+                  radial-gradient(circle at 90% 80%, ${theme.lighterPink} 150px, transparent 150px),
+                  ${theme.lightPink}`}
     >
       {/* Main Announcement */}
       <Flex
