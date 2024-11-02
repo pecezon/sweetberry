@@ -1,7 +1,8 @@
 import { Flex, Box, Text, Button, Image } from "@chakra-ui/react";
 import theme from "../utils/colors";
+import YogurtImage from "./YogurtImage";
 
-const Main = () => {
+const Main = ({ mediaQuery }) => {
   return (
     <Box
       width="100%"
@@ -15,7 +16,8 @@ const Main = () => {
       display="flex"
       backgroundColor={theme.lightPink}
       flexDir="column"
-      justifyContent="space-around"
+      justifyContent={["flex-start", "space-around"]}
+      gap={["2rem", "0rem"]}
       sx={{
         clipPath: [
           "ellipse(100% 66% at 50% 33%)",
@@ -24,11 +26,25 @@ const Main = () => {
       }}
       border="1px solid black"
       backgroundRepeat="no-repeat"
-      background={`radial-gradient(circle at 100% 0px, ${theme.lighterPink} 200px, transparent 200px),
+      background={[
+        `radial-gradient(circle at 100% 0px, ${theme.lighterPink} 100px, transparent 100px),
+                  radial-gradient(circle at 0 30%, ${theme.lighterPink} 75px, transparent 75px),
+                  radial-gradient(circle at 5% 80%, ${theme.lighterPink} 75px, transparent 75px),
+                  radial-gradient(circle at 95% 80%, ${theme.lighterPink} 60px, transparent 50px),
+                  ${theme.lightPink}`,
+        `radial-gradient(circle at 100% 0px, ${theme.lighterPink} 175px, transparent 175px),
+                  radial-gradient(circle at 0 30%, ${theme.lighterPink} 125px, transparent 125px),
+                  radial-gradient(circle at 15% 80%, ${theme.lighterPink} 125px, transparent 125px),
+                  radial-gradient(circle at 90% 80%, ${theme.lighterPink} 125px, transparent 125px),
+                  ${theme.lightPink}`,
+        `radial-gradient(circle at 100% 0px, ${theme.lighterPink} 200px, transparent 200px),
                   radial-gradient(circle at 0 30%, ${theme.lighterPink} 150px, transparent 150px),
                   radial-gradient(circle at 15% 80%, ${theme.lighterPink} 150px, transparent 150px),
                   radial-gradient(circle at 90% 80%, ${theme.lighterPink} 150px, transparent 150px),
-                  ${theme.lightPink}`}
+                  radial-gradient(circle at 30% 5%, ${theme.lighterPink} 125px, transparent 125px),
+                  radial-gradient(circle at 70% 20%, ${theme.lighterPink} 100px, transparent 100px),
+                  ${theme.lightPink}`,
+      ]}
     >
       {/* Main Announcement */}
       <Flex
@@ -48,12 +64,24 @@ const Main = () => {
       </Flex>
 
       {/* Images */}
-      <Flex width="100%" justifyContent="space-between" alignItems="center">
+      <Flex 
+        width="100%" 
+        justifyContent="center" 
+        alignItems="center"
+        position="relative"
+        overflowX="hidden"
+        height={["50%", "60%", "60%"]}
+      > 
         {/* Floating Stuff 1 */}
         <Flex
-          width={["25%", "20%"]}
-          justifyContent="flex-start"
-          alignItems="center"
+          width="auto"
+          height="100%"
+          position="absolute"
+          left={["-15%", "-10%", "-5%"]}
+          top="50%"
+          transform="translateY(-50%)"
+          zIndex="2"
+          maxHeight="100%"
         >
           <Image
             src={process.env.PUBLIC_URL + "/images/misc/strawberries.png"}
@@ -61,17 +89,32 @@ const Main = () => {
         </Flex>
         {/* Frozen Yogurt Images */}
         <Flex
-          width={["50%", "60%"]}
+          width={"80%"}
           justifyContent="center"
           alignItems="center"
+          zIndex="1"
         >
-          <Image
-            width="250px"
-            src={process.env.PUBLIC_URL + "/images/brand/squareLogo.jpeg"}
-          ></Image>
+          <YogurtImage
+            imgPath={
+              process.env.PUBLIC_URL + "/images/misc/strawberryFYSample.png"
+            }
+            littleImgPath={
+              process.env.PUBLIC_URL + "/images/misc/strawberry.png"
+            }
+            color={theme.lighterPink}
+          />
         </Flex>
         {/* Floating Stuff 2 */}
-        <Flex width={["25%", "20%"]}>
+        <Flex
+          width="auto"
+          height="100%"
+          position="absolute"
+          right={["-15%", "-10%", "-5%"]}
+          top="50%"
+          transform="translateY(-50%)" 
+          zIndex="2"
+          maxHeight="100%"
+        >
           <Image
             src={process.env.PUBLIC_URL + "/images/misc/strawberries.png"}
           ></Image>
