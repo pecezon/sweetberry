@@ -13,22 +13,23 @@ const Main = ({ mediaQuery }) => {
         window.innerHeight - 120 + "px",
         window.innerHeight - 70 + "px",
       ]}
+      minHeight={["0", "700px"]}
       display="flex"
       backgroundColor={theme.lightPink}
       flexDir="column"
-      justifyContent={["flex-start", "space-around"]}
-      gap={["2rem", "0rem"]}
+      justifyContent={["flex-start", "flex-start"]}
+      alignItems="center"
+      gap={["1.5rem", "0rem"]}
       sx={{
         clipPath: [
           "ellipse(100% 66% at 50% 33%)",
           "ellipse(67% 66% at 50% 33%)",
         ],
       }}
-      border="1px solid black"
       backgroundRepeat="no-repeat"
       background={[
         `radial-gradient(circle at 100% 0px, ${theme.lighterPink} 100px, transparent 100px),
-                  radial-gradient(circle at 0 30%, ${theme.lighterPink} 75px, transparent 75px),
+                  radial-gradient(circle at 0 20%, ${theme.lighterPink} 75px, transparent 75px),
                   radial-gradient(circle at 5% 80%, ${theme.lighterPink} 75px, transparent 75px),
                   radial-gradient(circle at 95% 80%, ${theme.lighterPink} 60px, transparent 50px),
                   ${theme.lightPink}`,
@@ -51,12 +52,11 @@ const Main = ({ mediaQuery }) => {
         width="100%"
         justifyContent="center"
         alignItems="center"
-        border="1px solid black"
       >
         <Text
-          fontSize={["0.75rem", "1rem", "1.5rem"]}
+          fontFamily="Italiana"
+          fontSize={["1.25rem", "1.75rem", "2.5rem"]}
           textAlign="center"
-          fontWeight="bold"
           margin="1rem"
         >
           The best frozen yogurt you’ll find
@@ -70,17 +70,17 @@ const Main = ({ mediaQuery }) => {
         alignItems="center"
         position="relative"
         overflowX="hidden"
-        height={["50%", "60%", "60%"]}
+        height={["50%", "60%", "70%"]}
       > 
         {/* Floating Stuff 1 */}
         <Flex
           width="auto"
           height="100%"
           position="absolute"
-          left={["-15%", "-10%", "-5%"]}
+          left={["-20%", "-10%", "-5%"]}
           top="50%"
           transform="translateY(-50%)"
-          zIndex="2"
+          zIndex="3"
           maxHeight="100%"
         >
           <Image
@@ -88,31 +88,78 @@ const Main = ({ mediaQuery }) => {
           ></Image>
         </Flex>
         {/* Frozen Yogurt Images */}
-        <Flex
-          width={"80%"}
-          justifyContent="center"
-          alignItems="center"
-          zIndex="1"
-        >
-          <YogurtImage
-            imgPath={
-              process.env.PUBLIC_URL + "/images/misc/strawberryFYSample.png"
-            }
-            littleImgPath={
-              process.env.PUBLIC_URL + "/images/misc/strawberry.png"
-            }
-            color={theme.lighterPink}
-          />
-        </Flex>
+          {(mediaQuery) ? (
+            <Flex
+              width={"80%"}
+              justifyContent="center"
+              alignItems="center"
+              zIndex="1"
+              flexWrap="nowrap"
+              position="relative"
+            >
+              <YogurtImage
+                top="-25px"
+                left="100px"
+                zIndex="2"
+                imgPath={
+                  process.env.PUBLIC_URL + "/images/misc/chocolateFYSample.png"
+                }
+                littleImgPath={
+                  process.env.PUBLIC_URL + "/images/misc/chocolate.png"
+                }
+                color={theme.lighterPink}
+
+              />
+              <YogurtImage
+                  top="25px"
+                  imgPath={
+                    process.env.PUBLIC_URL + "/images/misc/strawberryFYSample.png"
+                  }
+                  littleImgPath={
+                    process.env.PUBLIC_URL + "/images/misc/strawberry.png"
+                  }
+                  color={theme.lighterPink}
+              />
+              <YogurtImage
+                  top="-25px"
+                  right="100px"
+                  zIndex="2"
+                  imgPath={
+                    process.env.PUBLIC_URL + "/images/misc/vanillaFYSample.png"
+                  }
+                  littleImgPath={
+                    process.env.PUBLIC_URL + "/images/misc/vanilla.png"
+                  }
+                  color={theme.lighterPink}
+              />
+            </Flex>
+          ):(
+            <Flex
+              width={"80%"}
+              justifyContent="center"
+              alignItems="center"
+              zIndex="1"
+            >
+              <YogurtImage
+                imgPath={
+                  process.env.PUBLIC_URL + "/images/misc/strawberryFYSample.png"
+                }
+                littleImgPath={
+                  process.env.PUBLIC_URL + "/images/misc/strawberry.png"
+                }
+                color={theme.lighterPink}
+              />
+            </Flex>
+          )}
         {/* Floating Stuff 2 */}
         <Flex
           width="auto"
           height="100%"
           position="absolute"
-          right={["-15%", "-10%", "-5%"]}
+          right={["-20%", "-10%", "-5%"]}
           top="50%"
           transform="translateY(-50%)" 
-          zIndex="2"
+          zIndex="3"
           maxHeight="100%"
         >
           <Image
@@ -123,19 +170,25 @@ const Main = ({ mediaQuery }) => {
 
       {/* Bottom Text */}
       <Flex
-        width="100%"
-        height="100px"
+        width={["100%", "80%", "75%"]}
         justifyContent="center"
         alignItems="center"
         flexDir="column"
-        border="1px solid black"
         gap="1rem"
+        textAlign="center"
+        padding="1rem"
       >
-        <Text>
+        <Text
+          fontSize={["0.75rem", "1rem", "1.25rem"]}
+        >
           Discover the delicious flavors that make us the best frozen yogurt you
           will have ever tasted
         </Text>
-        <Button>See Flavors</Button>
+        <Button
+          size={["sm", "md"]}
+          alignContent="center"
+          justifyContent="center"
+        >See Flavors</Button>
       </Flex>
     </Box>
   );

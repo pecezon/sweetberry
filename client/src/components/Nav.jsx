@@ -2,9 +2,7 @@ import React from "react";
 import {
   Box,
   Flex,
-  HStack,
   IconButton,
-  useDisclosure,
   Image,
   Link,
   Button,
@@ -13,7 +11,6 @@ import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdClose } from "react-icons/md";
 import { getTest } from "../functions/test";
-import { px } from "framer-motion";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,7 +58,7 @@ const Navbar = () => {
         left="0"
         width="100%"
         height={window.innerHeight - 66 + "px"}
-        bgcolor="white"
+        background="white"
         zIndex="10"
         flexDirection="column"
         alignItems="center"
