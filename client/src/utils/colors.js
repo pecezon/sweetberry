@@ -1,5 +1,6 @@
 const theme = {
   hardPink: "#FF46AE",
+  penguinPink: "#FFB9E0",
   lightPink: "#FFB9E0",
   hardBlue: "#0092FF",
   hardGreen: "#A7C900",
