@@ -1,7 +1,6 @@
 import { Flex, Icon, Text, Box, Center } from "@chakra-ui/react";
 import theme from "../utils/colors";
 import React from "react";
-import { FaBolt } from "react-icons/fa6";
 
 const Feature = ({ color = theme.hardBlue, icon, text }) => {
   return (
