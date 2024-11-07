@@ -121,9 +121,7 @@ const Flavors = () => {
           {loading ? (
             <h1>Loading...</h1>
           ) : /* Error Screen */
-          error ? (
-            <h1>Sorry we had a problem getting our flavors</h1>
-          ) : (
+          Array.isArray(data) ? (
             /* Flavors Screen */
             <Flex
               width="100%"
@@ -140,6 +138,8 @@ const Flavors = () => {
                 />
               ))}
             </Flex>
+          ) : (
+            <h1>Sorry we had a problem getting our flavors</h1>
           )}
           <Text fontSize={["0.75rem", "1rem", "1.25rem"]}>
             Try the delicious flavors we offer
