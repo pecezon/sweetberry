@@ -23,7 +23,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <Flex padding={4} justifyContent="space-between" alignItems="center">
+    <Flex padding={4} justifyContent="space-between" alignItems="center" position='sticky' top='0' zIndex='100' backgroundColor='white'>
       {/* Logo */}
       <Link w="30%" href="https://www.youtube.com">
         <Image
