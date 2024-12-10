@@ -1,6 +1,6 @@
 import { Flex, Box, Text, Button, Image } from "@chakra-ui/react";
-import theme from "../utils/colors";
-import YogurtImage from "./YogurtImage";
+import theme from "../../utils/colors";
+import YogurtImage from "../YogurtImage";
 
 const Main = ({ mediaQuery }) => {
   return (
@@ -48,11 +48,7 @@ const Main = ({ mediaQuery }) => {
       ]}
     >
       {/* Main Announcement */}
-      <Flex
-        width="100%"
-        justifyContent="center"
-        alignItems="center"
-      >
+      <Flex width="100%" justifyContent="center" alignItems="center">
         <Text
           fontFamily="Italiana"
           fontSize={["1.25rem", "1.75rem", "2.5rem"]}
@@ -64,14 +60,14 @@ const Main = ({ mediaQuery }) => {
       </Flex>
 
       {/* Images */}
-      <Flex 
-        width="100%" 
-        justifyContent="center" 
+      <Flex
+        width="100%"
+        justifyContent="center"
         alignItems="center"
         position="relative"
         overflowX="hidden"
         height={["50%", "60%", "70%"]}
-      > 
+      >
         {/* Floating Stuff 1 */}
         <Flex
           width="auto"
@@ -88,69 +84,68 @@ const Main = ({ mediaQuery }) => {
           ></Image>
         </Flex>
         {/* Frozen Yogurt Images */}
-          {(mediaQuery) ? (
-            <Flex
-              width={"80%"}
-              justifyContent="center"
-              alignItems="center"
-              zIndex="1"
-              flexWrap="nowrap"
-              position="relative"
-            >
-              <YogurtImage
-                top="-25px"
-                left="100px"
-                zIndex="2"
-                imgPath={
-                  process.env.PUBLIC_URL + "/images/misc/chocolateFYSample.png"
-                }
-                littleImgPath={
-                  process.env.PUBLIC_URL + "/images/misc/chocolate.png"
-                }
-                color={theme.lighterPink}
-
-              />
-              <YogurtImage
-                  top="25px"
-                  imgPath={
-                    process.env.PUBLIC_URL + "/images/misc/strawberryFYSample.png"
-                  }
-                  littleImgPath={
-                    process.env.PUBLIC_URL + "/images/misc/strawberry.png"
-                  }
-                  color={theme.lighterPink}
-              />
-              <YogurtImage
-                  top="-25px"
-                  right="100px"
-                  zIndex="2"
-                  imgPath={
-                    process.env.PUBLIC_URL + "/images/misc/vanillaFYSample.png"
-                  }
-                  littleImgPath={
-                    process.env.PUBLIC_URL + "/images/misc/vanilla.png"
-                  }
-                  color={theme.lighterPink}
-              />
-            </Flex>
-          ):(
-            <Flex
-              width={"80%"}
-              justifyContent="center"
-              alignItems="center"
-              zIndex="1"
-            >
-              <YogurtImage
-                imgPath={
-                  process.env.PUBLIC_URL + "/images/misc/strawberryFYSample.png"
-                }
-                littleImgPath={
-                  process.env.PUBLIC_URL + "/images/misc/strawberry.png"
-                }
-                color={theme.lighterPink}
-              />
-            </Flex>
-          )}
+        {mediaQuery ? (
+          <Flex
+            width={"80%"}
+            justifyContent="center"
+            alignItems="center"
+            zIndex="1"
+            flexWrap="nowrap"
+            position="relative"
+          >
+            <YogurtImage
+              top="-25px"
+              left="100px"
+              zIndex="2"
+              imgPath={
+                process.env.PUBLIC_URL + "/images/misc/chocolateFYSample.png"
+              }
+              littleImgPath={
+                process.env.PUBLIC_URL + "/images/misc/chocolate.png"
+              }
+              color={theme.lighterPink}
+            />
+            <YogurtImage
+              top="25px"
+              imgPath={
+                process.env.PUBLIC_URL + "/images/misc/strawberryFYSample.png"
+              }
+              littleImgPath={
+                process.env.PUBLIC_URL + "/images/misc/strawberry.png"
+              }
+              color={theme.lighterPink}
+            />
+            <YogurtImage
+              top="-25px"
+              right="100px"
+              zIndex="2"
+              imgPath={
+                process.env.PUBLIC_URL + "/images/misc/vanillaFYSample.png"
+              }
+              littleImgPath={
+                process.env.PUBLIC_URL + "/images/misc/vanilla.png"
+              }
+              color={theme.lighterPink}
+            />
+          </Flex>
+        ) : (
+          <Flex
+            width={"80%"}
+            justifyContent="center"
+            alignItems="center"
+            zIndex="1"
+          >
+            <YogurtImage
+              imgPath={
+                process.env.PUBLIC_URL + "/images/misc/strawberryFYSample.png"
+              }
+              littleImgPath={
+                process.env.PUBLIC_URL + "/images/misc/strawberry.png"
+              }
+              color={theme.lighterPink}
+            />
+          </Flex>
+        )}
         {/* Floating Stuff 2 */}
         <Flex
           width="auto"
@@ -158,7 +153,7 @@ const Main = ({ mediaQuery }) => {
           position="absolute"
           right={["-20%", "-10%", "-5%"]}
           top="50%"
-          transform="translateY(-50%)" 
+          transform="translateY(-50%)"
           zIndex="3"
           maxHeight="100%"
         >
@@ -178,9 +173,7 @@ const Main = ({ mediaQuery }) => {
         textAlign="center"
         padding="1rem"
       >
-        <Text
-          fontSize={["0.75rem", "1rem", "1.25rem"]}
-        >
+        <Text fontSize={["0.75rem", "1rem", "1.25rem"]}>
           Discover the delicious flavors that make us the best frozen yogurt you
           will have ever tasted
         </Text>
@@ -188,7 +181,9 @@ const Main = ({ mediaQuery }) => {
           size={["sm", "md"]}
           alignContent="center"
           justifyContent="center"
-        >See Flavors</Button>
+        >
+          See Flavors
+        </Button>
       </Flex>
     </Box>
   );

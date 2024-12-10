@@ -1,6 +1,6 @@
 import React from "react";
 import { Flex, Image, Text } from "@chakra-ui/react";
-import theme from "../utils/colors";
+import theme from "../../utils/colors";
 
 const VisitUs = ({ mediaQuery }) => {
   return (

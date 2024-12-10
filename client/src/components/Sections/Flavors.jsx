@@ -1,9 +1,9 @@
 import { Flex, Box, Image, Text } from "@chakra-ui/react";
 import React from "react";
-import theme from "../utils/colors";
-import { getFlavors } from "../functions/flavors";
+import theme from "../../utils/colors";
+import { getFlavors } from "../../functions/flavors";
 import { useEffect, useState } from "react";
-import Flavor from "./Flavor";
+import Flavor from "../Flavor";
 
 const Flavors = () => {
   {

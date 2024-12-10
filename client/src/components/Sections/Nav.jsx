@@ -1,16 +1,9 @@
 import React from "react";
-import {
-  Box,
-  Flex,
-  IconButton,
-  Image,
-  Link,
-  Button,
-} from "@chakra-ui/react";
+import { Box, Flex, IconButton, Image, Link, Button } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdClose } from "react-icons/md";
-import { getTest } from "../functions/test";
+import { getTest } from "../../functions/test";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,7 +16,15 @@ const Navbar = () => {
   }, []);
 
   return (
-    <Flex padding={4} justifyContent="space-between" alignItems="center" position='sticky' top='0' zIndex='100' backgroundColor='white'>
+    <Flex
+      padding={4}
+      justifyContent="space-between"
+      alignItems="center"
+      position="sticky"
+      top="0"
+      zIndex="100"
+      backgroundColor="white"
+    >
       {/* Logo */}
       <Link w="30%" href="https://www.youtube.com">
         <Image

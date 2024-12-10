@@ -1,10 +1,11 @@
 import React from "react";
-import Nav from "../components/Nav";
-import Main from "../components/Main";
-import WhyUs from "../components/WhyUs";
-import VisitUs from "../components/VisitUs";
+import Nav from "../components/Sections/Nav";
+import Main from "../components/Sections/Main";
+import WhyUs from "../components/Sections/WhyUs";
+import VisitUs from "../components/Sections/VisitUs";
 import { useMediaQuery } from "react-responsive";
-import Flavors from "../components/Flavors";
+import Flavors from "../components/Sections/Flavors";
+import Toppings from "../components/Sections/Toppings";
 
 const Landing = () => {
   const isBigScreen = useMediaQuery({ query: "(min-width: 1280px)" });
@@ -20,6 +21,7 @@ const Landing = () => {
       <WhyUs />
       <Flavors />
       <VisitUs mediaQuery={isBigScreen} />
+      <Toppings />
     </div>
   );
 };

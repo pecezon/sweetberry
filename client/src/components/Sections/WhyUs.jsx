@@ -1,12 +1,12 @@
 import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
-import Feature from "./Feature";
+import Feature from "../Feature";
 import { FaBolt } from "react-icons/fa6";
 import { MdOutlineIcecream } from "react-icons/md";
 import { LuThermometerSnowflake } from "react-icons/lu";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import { MdOutlineStorefront } from "react-icons/md";
-import theme from "../utils/colors";
+import theme from "../../utils/colors";
 
 const WhyUs = () => {
   return (
