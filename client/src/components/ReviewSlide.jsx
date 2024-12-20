@@ -28,6 +28,7 @@ const ReviewSlide = ({ review, color }) => {
         justifyContent={"flex-start"}
         alignItems={"center"}
         marginTop={"2rem"}
+        width={"100%"}
       >
         <Avatar
           size={["lg", "lg", "lg", "lg", "xl"]}

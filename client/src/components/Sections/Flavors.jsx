@@ -4,11 +4,13 @@ import theme from "../../utils/colors";
 import { getFlavors } from "../../functions/flavors";
 import { useEffect, useState } from "react";
 import Flavor from "../Flavor";
+import { useTranslation } from "react-i18next";
 
 const Flavors = () => {
-  {
-    /*Retrieve flavors from the database*/
-  }
+  //Use transaltion hook here
+  const { t } = useTranslation();
+
+  //Retrieve flavors from the database
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -35,12 +37,15 @@ const Flavors = () => {
       alignItems="center"
       flexDirection={["column-reverse", "column-reverse", "row"]}
       maxH="1280px"
-      h="100vh"
+      minH={["650px", "850px"]}
+      h={["70vh", "80vh", "90vh", "100vh", "100vh"]}
+      marginTop={["2rem", "3rem", "4rem"]}
+      marginBottom={["-4rem", "-6rem", "-2rem"]}
     >
       {/* Penguin desmadre */}
       <Flex
         w={["90%", "90%", "50%"]}
-        h={["40%", "40%", "90%"]}
+        h={["30%", "40%", "90%"]}
         position="relative"
         alignItems={["flex-start", "flex-start", "center"]}
         justifyContent="center"
@@ -66,7 +71,7 @@ const Flavors = () => {
         <Image
           src={process.env.PUBLIC_URL + "images/brand/penguinNoBG.png"}
           alt="penguin"
-          height={["75%", "95%", "50%", "60%", "70%"]}
+          height={["90%", "95%", "50%", "60%", "70%"]}
           width="auto"
           position="absolute"
           left={["50%", "50%", "-15%"]}
@@ -82,10 +87,10 @@ const Flavors = () => {
       {/* Flavors desmadre*/}
       <Box
         w={["90%", "90%", "50%"]}
-        h={["60%", "60%", "90%"]}
+        h={["70%", "60%", "90%"]}
         display="flex"
         alignItems="center"
-        justifyContent={["flex-end", "flex-end", "center"]}
+        justifyContent={["center"]}
         flexDirection="column"
         textAlign="center"
         background={[
@@ -107,16 +112,20 @@ const Flavors = () => {
       >
         <Flex
           width="90%"
+          height="100%"
           flexDirection="column"
           alignItems="center"
+          justifyContent="space-evenly"
           boxShadow="0px 4px 10px rgba(0, 0, 0, 0.15)"
           borderRadius="15px"
           padding={["1rem", "1.5rem", "2rem"]}
           rowGap={["0.75rem", "1rem", "1.5rem"]}
-          maxW="550px"
           background="white"
+          maxW="500px"
         >
-          <Text fontSize={["1.5rem", "2rem", "2.25rem"]}>Flavors</Text>
+          <Text fontSize={["1.5rem", "2rem", "2.25rem"]}>
+            {t("flavorsTitle")}
+          </Text>
           {/* Loading Screen */}
           {loading ? (
             <h1>Loading...</h1>
@@ -133,16 +142,16 @@ const Flavors = () => {
               {data.map((flavor) => (
                 <Flavor
                   key={flavor._id}
-                  name={flavor.name}
+                  name={t(flavor.name)}
                   image={flavor.imagePath}
                 />
               ))}
             </Flex>
           ) : (
-            <h1>Sorry we had a problem getting our flavors</h1>
+            <h1>{t("flavorsError")}</h1>
           )}
           <Text fontSize={["0.75rem", "1rem", "1.25rem"]}>
-            Try the delicious flavors we offer
+            {t("flavorsMessage")}
           </Text>
         </Flex>
       </Box>

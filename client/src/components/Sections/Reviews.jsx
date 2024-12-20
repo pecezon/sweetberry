@@ -3,20 +3,22 @@ import React from "react";
 import theme from "../../utils/colors";
 import ReviewSliderDesktop from "../ReviewSliderDesktop";
 import ReviewSliderMobile from "../ReviewSliderMobile";
+import { useTranslation } from "react-i18next";
 
 const ReviewsDesktop = ({ mediaQuery }) => {
+  const { t } = useTranslation();
+
   return (
     <Flex
       flexDir="column"
       alignItems="center"
       gap={[4, 8]}
       width="100%"
-      padding={"2rem 0"}
-      h="90vh"
-      minH="700px"
+      minH={["600px", "600px", "500px", "600px"]}
       justifyContent="space-between"
       position="relative"
       overflow="hidden"
+      marginTop={["4rem", "3rem", "4rem"]}
     >
       {/* Fondo */}
       <Flex
@@ -55,11 +57,13 @@ const ReviewsDesktop = ({ mediaQuery }) => {
         flexDirection="column"
         position="absolute"
         zIndex="2"
-        marginTop={"6rem"}
+        //marginTop={"6rem"}
         rowGap={10}
       >
         {/* Title */}
-        <Text fontSize={["1.5rem", "2rem", "2.25rem"]}>Reviews</Text>
+        <Text fontSize={["1.5rem", "2rem", "2.25rem"]}>
+          {t("reviewsTitle")}
+        </Text>
 
         {/* Reviews */}
         {mediaQuery ? <ReviewSliderMobile /> : <ReviewSliderDesktop />}
@@ -74,7 +78,7 @@ const ReviewsDesktop = ({ mediaQuery }) => {
           _hover={{ bg: "#FF69B4" }}
           _active={{ bg: "#FF69B4" }}
         >
-          Submit your review!!
+          {t("submitReview")}
         </Button>
       </Flex>
     </Flex>

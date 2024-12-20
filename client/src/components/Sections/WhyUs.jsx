@@ -7,8 +7,11 @@ import { LuThermometerSnowflake } from "react-icons/lu";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import { MdOutlineStorefront } from "react-icons/md";
 import theme from "../../utils/colors";
+import { useTranslation } from "react-i18next";
 
 const WhyUs = () => {
+  const { t } = useTranslation();
+
   return (
     <Flex
       width="100%"
@@ -18,7 +21,7 @@ const WhyUs = () => {
       gap="1rem"
       marginTop={["2rem", "3rem", "4rem"]}
     >
-      <Text fontSize={["1.5rem", "2rem", "2.25rem"]}>Why To Choose Us?</Text>
+      <Text fontSize={["1.5rem", "2rem", "2.25rem"]}>{t("whyus")}</Text>
       <Flex
         width="100%"
         justifyContent="space-around"
@@ -30,27 +33,27 @@ const WhyUs = () => {
       >
         <Feature
           icon={<FaBolt />}
-          text="Fast Delivery"
+          text={t("feature1")}
           color={theme.hardBlue}
         />
         <Feature
           icon={<MdOutlineIcecream />}
-          text="Flavor Variety"
+          text={t("feature2")}
           color={theme.hardGreen}
         />
         <Feature
           icon={<LuThermometerSnowflake />}
-          text="Fresh Ingredients"
+          text={t("feature3")}
           color={theme.hardPink}
         />
         <Feature
           icon={<RiCustomerService2Fill />}
-          text="Excellent Customer Service"
+          text={t("feature4")}
           color={theme.hardGreen}
         />
         <Feature
           icon={<MdOutlineStorefront />}
-          text="Cozy Atmosphere"
+          text={t("feature5")}
           color={theme.hardBlue}
         />
       </Flex>

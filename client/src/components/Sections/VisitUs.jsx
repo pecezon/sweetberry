@@ -1,10 +1,19 @@
 import React from "react";
 import { Flex, Image, Text } from "@chakra-ui/react";
 import theme from "../../utils/colors";
+import { useTranslation } from "react-i18next";
 
 const VisitUs = ({ mediaQuery }) => {
+  const { t } = useTranslation();
+
   return (
-    <Flex height="90vh" width="100%">
+    <Flex
+      height={["70vh", "80vh", "90vh", "90vh"]}
+      maxH={["500px", "900px", "1000px", "1100px"]}
+      width="100%"
+      alignItems={"center"}
+      marginTop={["2rem", "0rem", "4rem"]}
+    >
       {/* Fondo */}
       <Flex
         width="100%"
@@ -37,14 +46,20 @@ const VisitUs = ({ mediaQuery }) => {
       {/* Text & Map*/}
       <Flex
         width="100%"
-        height="90vh"
-        justifyContent="space-around"
+        height={["70vh", "80vh", "90vh", "90vh"]}
+        maxH={["500px", "900px", "1000px", "1100px"]}
+        justifyContent="center"
         alignItems="center"
         flexDirection="column"
         position="absolute"
         zIndex="2"
       >
-        <Text fontSize={["1.5rem", "2rem", "2.25rem"]}>Visit us</Text>
+        <Text
+          fontSize={["1.5rem", "2rem", "2.25rem"]}
+          marginBottom={["1.75rem", "1.75rem", "3rem"]}
+        >
+          {t("visitUs")}
+        </Text>
 
         {/* Map */}
         <iframe
@@ -67,9 +82,10 @@ const VisitUs = ({ mediaQuery }) => {
           alignItems="center"
           justifyContent="center"
           flexDirection="column"
+          marginTop={["1.75rem", "1.75rem", "3rem"]}
         >
-          <Text fontSize={["1rem", "1.5rem", "1.75rem"]}>Monday - Sunday</Text>
-          <Text fontSize={["1rem", "1.5rem", "1.75rem"]}>9am - 9pm</Text>
+          <Text fontSize={["1rem", "1.5rem", "1.75rem"]}>{t("schedule")}</Text>
+          <Text fontSize={["1rem", "1.5rem", "1.75rem"]}>{t("hours")}</Text>
         </Flex>
       </Flex>
     </Flex>

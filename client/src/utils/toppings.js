@@ -31,7 +31,7 @@ const toppings = [
   },
   {
     name: "Cherry",
-    src: `${process.env.PUBLIC_URL}/images/toppings/cherry.jpeg`,
+    src: `${process.env.PUBLIC_URL}/images/toppings/cherry.jpg`,
     tipo: "Frutas",
   },
   {
@@ -91,7 +91,7 @@ const toppings = [
   },
   {
     name: "Mango",
-    src: `${process.env.PUBLIC_URL}/images/toppings/mango.jpeg`,
+    src: `${process.env.PUBLIC_URL}/images/toppings/mango.jpg`,
     tipo: "Frutas",
   },
   {

@@ -4,10 +4,26 @@ import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdClose } from "react-icons/md";
 import { getTest } from "../../functions/test";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [test, setTest] = useState("");
+
+  //Switch language
+  const [language, setLanguage] = useState("es");
+  const { t, i18n } = useTranslation();
+
+  const switchLanguage = () => {
+    console.log("Switching language");
+    if (language === "es") {
+      i18n.changeLanguage("en");
+      setLanguage("en");
+    } else {
+      i18n.changeLanguage("es");
+      setLanguage("es");
+    }
+  };
 
   useEffect(() => {
     getTest().then((data) => {
@@ -46,10 +62,10 @@ const Navbar = () => {
         hideBelow="md"
         gap="0 1rem"
       >
-        <Link>Home</Link>
-        <Link>Flavors</Link>
-        <Link>Reviews</Link>
-        <Link>Toppings</Link>
+        <Link>{t("home")}</Link>
+        <Link>{t("flavors")}</Link>
+        <Link>{t("reviews")}</Link>
+        <Link>{t("toppings")}</Link>
       </Box>
 
       {/* Links for mobile*/}
@@ -82,7 +98,9 @@ const Navbar = () => {
         alignItems="center"
         gap="1rem"
       >
-        <Button size={["sm", "md"]}>Esp</Button>
+        <Button size={["sm", "md"]} onClick={switchLanguage}>
+          {t("language")}
+        </Button>
         {/*Ham menu */}
         <IconButton
           hideFrom={"md"}

@@ -1,8 +1,12 @@
 import { Flex, Box, Text, Button, Image } from "@chakra-ui/react";
 import theme from "../../utils/colors";
 import YogurtImage from "../YogurtImage";
+import { useTranslation } from "react-i18next";
 
 const Main = ({ mediaQuery }) => {
+  //Use transaltion hook here
+  const { t } = useTranslation();
+
   return (
     <Box
       width="100%"
@@ -13,7 +17,7 @@ const Main = ({ mediaQuery }) => {
         window.innerHeight - 120 + "px",
         window.innerHeight - 70 + "px",
       ]}
-      minHeight={["0", "700px"]}
+      minHeight={["480px", "700px"]}
       display="flex"
       backgroundColor={theme.lightPink}
       flexDir="column"
@@ -51,11 +55,11 @@ const Main = ({ mediaQuery }) => {
       <Flex width="100%" justifyContent="center" alignItems="center">
         <Text
           fontFamily="Italiana"
-          fontSize={["1.25rem", "1.75rem", "2.5rem"]}
+          fontSize={["1.5rem", "1.75rem", "2.5rem"]}
           textAlign="center"
           margin="1rem"
         >
-          The best frozen yogurt you’ll find
+          {t("mainAnnouncement")}
         </Text>
       </Flex>
 
@@ -174,8 +178,7 @@ const Main = ({ mediaQuery }) => {
         padding="1rem"
       >
         <Text fontSize={["0.75rem", "1rem", "1.25rem"]}>
-          Discover the delicious flavors that make us the best frozen yogurt you
-          will have ever tasted
+          {t("mainMessage")}
         </Text>
         <Button
           padding={"1rem 2rem"}
@@ -185,8 +188,9 @@ const Main = ({ mediaQuery }) => {
           color={"#000"}
           _hover={{ bg: "#FF69B4" }}
           _active={{ bg: "#FF69B4" }}
+          size={["sm", "md"]}
         >
-          See Flavors
+          {t("seeFlavorsButton")}
         </Button>
       </Flex>
     </Box>

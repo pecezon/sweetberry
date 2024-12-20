@@ -10,7 +10,11 @@ import ToppingCard from "../ToppingCard";
 
 import theme from "../../utils/colors";
 
+import { useTranslation } from "react-i18next";
+
 const Toppings = () => {
+  const { t } = useTranslation();
+
   const [toppingElegido, setToppingElegido] = useState("Frutas");
 
   return (
@@ -18,9 +22,9 @@ const Toppings = () => {
       flexDir="column"
       justifyContent="center"
       alignItems="center"
-      gap={[4, 8]}
+      gap={[4, 6, 8]}
       width="100%"
-      padding={"2rem 0"}
+      marginTop={["2rem", "0rem", "2rem"]}
     >
       {/* Title */}
       <Text fontSize={["1.5rem", "2rem", "2.25rem"]}>Toppings</Text>
@@ -35,7 +39,7 @@ const Toppings = () => {
       >
         {/* Fruit */}
         <ToppingMenuButton
-          text="Fruit"
+          text={t("fruits")}
           onClick={() => {
             setToppingElegido("Frutas");
           }}
@@ -43,7 +47,7 @@ const Toppings = () => {
 
         {/* Dried Fruits */}
         <ToppingMenuButton
-          text="Dried Fruits"
+          text={t("driedFruits")}
           onClick={() => {
             setToppingElegido("Frutos Secos");
           }}
@@ -51,7 +55,7 @@ const Toppings = () => {
 
         {/* Chocolates */}
         <ToppingMenuButton
-          text="Chocolates"
+          text={t("chocolates")}
           onClick={() => {
             setToppingElegido("Chocolates");
           }}
@@ -59,7 +63,7 @@ const Toppings = () => {
 
         {/* Liquids */}
         <ToppingMenuButton
-          text="Liquids"
+          text={t("liquids")}
           onClick={() => {
             setToppingElegido("Liquidos");
           }}
@@ -67,7 +71,7 @@ const Toppings = () => {
 
         {/* Cookies & Cereals */}
         <ToppingMenuButton
-          text="Cookies & Cereals"
+          text={t("cookiesCereals")}
           onClick={() => {
             setToppingElegido("Galletas y Cereales");
           }}
@@ -75,7 +79,7 @@ const Toppings = () => {
 
         {/* Candy & Others */}
         <ToppingMenuButton
-          text="Candy & Others"
+          text={t("candiesOthers")}
           onClick={() => {
             setToppingElegido("Dulces y Otros");
           }}
@@ -96,7 +100,7 @@ const Toppings = () => {
       >
         {toppings.map((topping) => {
           if (topping.tipo === toppingElegido) {
-            return <ToppingCard imgPath={topping.src} name={topping.name} />;
+            return <ToppingCard imgPath={topping.src} name={t(topping.name)} />;
           }
         })}
       </Flex>

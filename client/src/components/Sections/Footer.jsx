@@ -1,12 +1,15 @@
 import { Flex, Image, Icon, Link, Text } from "@chakra-ui/react";
 import React from "react";
 import theme from "../../utils/colors";
+import { useTranslation } from "react-i18next";
 
 //Icons
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <Flex
       width="100%"
@@ -21,7 +24,7 @@ const Footer = () => {
       }}
       background={theme.lightPink}
       flexDir={"column"}
-      marginTop={["1.5rem", 0, 0, 0, 0]}
+      marginTop={["2rem", "3rem", "4rem"]}
     >
       <Image
         src={process.env.PUBLIC_URL + "/images/brand/squareLogo.jpeg"}
@@ -85,7 +88,7 @@ const Footer = () => {
         color={"black"}
         marginBottom={"2rem"}
       >
-        Contenido de Sweetberry 2024 Ensenada, Baja California , México
+        {t("copyRight")}
       </Text>
 
       <Text
@@ -93,7 +96,7 @@ const Footer = () => {
         textAlign={"center"}
         color={"black"}
       >
-        Sitio desarrollado por{" "}
+        {t("credits") + " "}
         <Link href="https://github.com/pecezon" isExternal>
           Diegopez
         </Link>
