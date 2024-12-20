@@ -12,11 +12,13 @@ const ReviewSlide = ({ review, color }) => {
       bg={color}
       borderRadius={"20px"}
       justifyContent={"center"}
+      alignItems={"center"}
+      margin="auto"
       padding={"2rem"}
       flexDir={"column"}
     >
       <Text
-        fontSize={["0.5rem", "0.75rem", "0.75rem", "0.75rem", "1rem"]}
+        fontSize={["0.75rem", "0.75rem", "0.75rem", "0.75rem", "1rem"]}
         textAlign={"justify"}
         color={"black"}
       >
@@ -25,7 +27,7 @@ const ReviewSlide = ({ review, color }) => {
       <Flex
         justifyContent={"flex-start"}
         alignItems={"center"}
-        marginTop={"1rem"}
+        marginTop={"2rem"}
       >
         <Avatar
           size={["lg", "lg", "lg", "lg", "xl"]}
@@ -33,7 +35,7 @@ const ReviewSlide = ({ review, color }) => {
           src={review.img}
         ></Avatar>
         <Text
-          fontSize={["0.5rem", "0.75rem", "0.75rem", "0.75rem", "1rem"]}
+          fontSize={["0.75rem", "0.75rem", "0.75rem", "0.75rem", "1rem"]}
           textAlign={"left"}
           marginLeft={"1rem"}
           color={"black"}

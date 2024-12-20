@@ -7,6 +7,7 @@ import { useMediaQuery } from "react-responsive";
 import Flavors from "../components/Sections/Flavors";
 import Toppings from "../components/Sections/Toppings";
 import ReviewsDesktop from "../components/Sections/Reviews";
+import Footer from "../components/Sections/Footer";
 
 const Landing = () => {
   const isBigScreen = useMediaQuery({ query: "(min-width: 1280px)" });
@@ -25,6 +26,7 @@ const Landing = () => {
       <VisitUs mediaQuery={isBigScreen} />
       <Toppings />
       <ReviewsDesktop mediaQuery={isSmallScreen} />
+      <Footer />
     </div>
   );
 };

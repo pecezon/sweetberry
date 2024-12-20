@@ -178,9 +178,13 @@ const Main = ({ mediaQuery }) => {
           will have ever tasted
         </Text>
         <Button
-          size={["sm", "md"]}
-          alignContent="center"
-          justifyContent="center"
+          padding={"1rem 2rem"}
+          border={"2px solid black"}
+          borderRadius={"15px"}
+          bg={theme.lighterPink}
+          color={"#000"}
+          _hover={{ bg: "#FF69B4" }}
+          _active={{ bg: "#FF69B4" }}
         >
           See Flavors
         </Button>

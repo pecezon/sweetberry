@@ -1,5 +1,6 @@
 import { Flex, Text, Image, Button } from "@chakra-ui/react";
 import React from "react";
+import theme from "../../utils/colors";
 import ReviewSliderDesktop from "../ReviewSliderDesktop";
 import ReviewSliderMobile from "../ReviewSliderMobile";
 
@@ -16,7 +17,6 @@ const ReviewsDesktop = ({ mediaQuery }) => {
       justifyContent="space-between"
       position="relative"
       overflow="hidden"
-      border={"1px solid red"}
     >
       {/* Fondo */}
       <Flex
@@ -65,7 +65,17 @@ const ReviewsDesktop = ({ mediaQuery }) => {
         {mediaQuery ? <ReviewSliderMobile /> : <ReviewSliderDesktop />}
 
         {/* Button */}
-        <Button>Submit your review!!</Button>
+        <Button
+          padding={"1rem 2rem"}
+          border={"2px solid black"}
+          borderRadius={"15px"}
+          bg={theme.lightPink}
+          color={"#000"}
+          _hover={{ bg: "#FF69B4" }}
+          _active={{ bg: "#FF69B4" }}
+        >
+          Submit your review!!
+        </Button>
       </Flex>
     </Flex>
   );

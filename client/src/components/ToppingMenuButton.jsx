@@ -8,7 +8,7 @@ const ToppingMenuButton = ({ text, onClick }) => {
     <Button
       onClick={onClick}
       size={["sm", "md", "lg"]}
-      borderRadius="15px"
+      borderRadius="25px"
       background={colors.lightPink}
       _hover={{
         background: colors.hardPink,

@@ -26,10 +26,18 @@ const ReviewSliderMobile = () => {
       alignItems="center"
       overflow="hidden"
     >
-      <Swiper effect={"cards"} grabCursor={true} modules={[EffectCards]}>
+      <Swiper
+        effect={"cards"}
+        grabCursor={true}
+        modules={[EffectCards]}
+        cardsEffect={{
+          slideShadows: false, // Disables extra shadows
+        }}
+        style={{ height: "400px", width: "100%" }}
+      >
         {reviews.map((review, index) => {
           return (
-            <SwiperSlide key={index} style={{ boxShadow: "0px" }}>
+            <SwiperSlide key={index}>
               <ReviewSlide
                 review={review}
                 color={index % 2 ? theme.lightBlue : theme.lightPink}

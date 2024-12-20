@@ -68,8 +68,8 @@ const VisitUs = ({ mediaQuery }) => {
           justifyContent="center"
           flexDirection="column"
         >
-          <Text fontSize={["1.5rem", "2rem", "2.25rem"]}>Monday - Sunday</Text>
-          <Text fontSize={["1.5rem", "2rem", "2.25rem"]}>9am - 9pm</Text>
+          <Text fontSize={["1rem", "1.5rem", "1.75rem"]}>Monday - Sunday</Text>
+          <Text fontSize={["1rem", "1.5rem", "1.75rem"]}>9am - 9pm</Text>
         </Flex>
       </Flex>
     </Flex>
